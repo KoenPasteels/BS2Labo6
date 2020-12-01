@@ -33,4 +33,3 @@ jobs:
           repository: koenpasteels/bslabo6
           tags: latest
           tag_with_ref: true
-           
