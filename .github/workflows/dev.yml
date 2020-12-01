@@ -2,6 +2,7 @@ name: dev-actions
 on:
   push:
     branches: [ development ]
+  pull_request: [ development ]
 jobs:
   run_tests:
     runs-on: ubuntu-latest
