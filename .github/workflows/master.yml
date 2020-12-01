@@ -22,12 +22,12 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
   DockerHub:
-    name: push docker img naar docker hub
+    name: Push dockerimg to hub
     runs-on: ubuntu-latest
     steps:
       - name: check repo
         uses: actions/checkout@v2
-      - name: push naar hub
+      - name: Push to hub
         uses: docker/build-push-action@v1
         with:
           username: ${{secrets.DOCKER_USERNAME}}
@@ -45,7 +45,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ GITHUB.RUN_NUMBER }}
           release_name: Release ${{ github.ref }}
